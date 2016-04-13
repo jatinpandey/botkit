@@ -303,7 +303,6 @@ controller.on('message_received', function(bot, message) {
     return false;
 });
 
-
 function formatUptime(uptime) {
     var unit = 'second';
     if (uptime > 60) {
@@ -321,3 +320,4 @@ function formatUptime(uptime) {
     uptime = uptime + ' ' + unit;
     return uptime;
 }
+
