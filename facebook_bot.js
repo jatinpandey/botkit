@@ -98,18 +98,29 @@ controller.setupWebserver(process.env.port || 3000, function(err, webserver) {
 });
 
 
-controller.hears(['hello', 'hi'], 'message_received', function(bot, message) {
+controller.hears(['hello', 'hi', 'sup'], 'message_received', function(bot, message) {
 
 
     controller.storage.users.get(message.user, function(err, user) {
         if (user && user.name) {
-            bot.reply(message, 'Hello ' + user.name + '!!');
+            bot.reply(message, 'Wazza' + user.name + '!!');
         } else {
-            bot.reply(message, 'Hello.');
+            bot.reply(message, 'Suh dude.');
         }
     });
 });
 
+controller.hears(['bro'], 'message_received', function(bot, message) {
+
+
+    controller.storage.users.get(message.user, function(err, user) {
+        if (user && user.name) {
+            bot.reply(message, 'What\'s Gucci' + user.name + ' my friend');
+        } else {
+            bot.reply(message, 'Suh dude.');
+        }
+    });
+});
 
 controller.hears(['structured'], 'message_received', function(bot, message) {
 
@@ -299,7 +310,7 @@ controller.hears(['uptime', 'identify yourself', 'who are you', 'what is your na
 
 
 controller.on('message_received', function(bot, message) {
-    bot.reply(message, 'Try: `what is my name` or `structured` or `call me captain`');
+    bot.reply(message, 'Duly noted. Say generic stuff like hello, ask for my name and stuff for proper responses hahaha');
     return false;
 });
 
